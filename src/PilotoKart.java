@@ -1,11 +1,11 @@
 public class PilotoKart {
-	
+
 	public static final int VELOCIDAD = 0;
 	public static final int ACELERACION = 1;
 	public static final int PESO = 2;
 	public static final int MANEJO = 3;
 	public static final int AGARRE = 4;
-	
+
 	private String piloto;
 	private String imagen;
 	private int[] caracteristicas;
@@ -49,5 +49,10 @@ public class PilotoKart {
 		this.seleccionado = seleccionado;
 	}
 
-	
+	public String mostrarDatosPiloto() {
+
+		return this.getPiloto() + "\n Velocidad " + PilotoKart.VELOCIDAD + "\n Aceleracion " + PilotoKart.ACELERACION
+				+ "\n Peso " + PilotoKart.PESO + "\n Manejo " + PilotoKart.MANEJO + "\n Agarre " + PilotoKart.AGARRE;
+	}
+
 }

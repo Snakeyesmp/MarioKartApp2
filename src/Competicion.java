@@ -1,7 +1,7 @@
 import java.time.LocalTime;
 
 public class Competicion {
-	
+
 	private String circuito;
 	private String imagenMapa;
 	private int cilindrada;
@@ -16,7 +16,7 @@ public class Competicion {
 		this.vueltas = vueltas;
 		this.vueltaRapida = LocalTime.parse("00:00:00.000");
 	}
-	
+
 	public String getCircuito() {
 		return circuito;
 	}
@@ -24,7 +24,7 @@ public class Competicion {
 	public void setCircuito(String circuito) {
 		this.circuito = circuito;
 	}
-	
+
 	public String getImagenMapa() {
 		return imagenMapa;
 	}
@@ -63,6 +63,14 @@ public class Competicion {
 
 	public void setParticipantes(PilotoKart[] participantes) {
 		this.participantes = participantes;
+	}
+
+	public String mostrarDatosCompeticion() {
+
+		return "COMPETICION SUPER MARIO KART \n ------------------------------------------------ \n "
+				+ this.getCircuito() + "\n" + this.getCilindrada() + "cc - "
+				+ this.getVueltas() + " vueltas \n" + this.getParticipantes().length
+				+ " pilotos \n" + "Vuelta rápida: " + this.getVueltaRapida();
 	}
 
 }
