@@ -1,6 +1,5 @@
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 
 public class MarioKartApp {
 
@@ -32,8 +31,7 @@ public class MarioKartApp {
 	public static void iniciarCompeticion(Competicion competicion) {
 
 		ImageIcon fotoMapa = new ImageIcon(competicion.getImagenMapa());
-		UIManager.put("OptionPane.okButtonText", "Aceptar"); // Para cambiar el texto del boton y que ponga "Aceptar" en
-																// vez de "OK"
+
 		JOptionPane.showMessageDialog(null, competicion.mostrarDatosCompeticion(),
 				"SUPER MARIO KART: " + competicion.getCircuito(), JOptionPane.PLAIN_MESSAGE, fotoMapa);
 
@@ -42,8 +40,9 @@ public class MarioKartApp {
 	public static void menuPilotos(PilotoKart[] piloto) {
 
 		int posicion = 0;
+		boolean cerrar = true;
 
-		while (JOptionPane.CLOSED_OPTION == -1) {
+		while (cerrar) {
 
 			ImageIcon fotoPiloto = new ImageIcon(piloto[posicion].getImagen());
 
@@ -51,15 +50,16 @@ public class MarioKartApp {
 			String[] opciones = { "Anterior", "Seleccionar piloto", "Siguiente" };
 
 			// Mostrar el JOptionPane con los botones y obtener el botón seleccionado
-			int seleccion= 0;
+			int seleccion;
 			if (piloto[posicion].isSeleccionado()) {
-				seleccion = JOptionPane.showOptionDialog(null, piloto[posicion].mostrarDatosPiloto() + "\n PILOTO SELECCIONADO",
-						"Piloto: " + piloto[posicion].getPiloto(),
-						JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, fotoPiloto, opciones, opciones[1]);
+				seleccion = JOptionPane.showOptionDialog(null,
+						piloto[posicion].mostrarDatosPiloto() + "\n PILOTO SELECCIONADO",
+						"Piloto: " + piloto[posicion].getPiloto(), JOptionPane.DEFAULT_OPTION,
+						JOptionPane.PLAIN_MESSAGE, fotoPiloto, opciones, opciones[1]);
 			} else {
 				seleccion = JOptionPane.showOptionDialog(null, piloto[posicion].mostrarDatosPiloto(),
-						"Piloto: " + piloto[posicion].getPiloto(),
-						JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, fotoPiloto, opciones, opciones[1]);
+						"Piloto: " + piloto[posicion].getPiloto(), JOptionPane.DEFAULT_OPTION,
+						JOptionPane.PLAIN_MESSAGE, fotoPiloto, opciones, opciones[1]);
 			}
 
 			// Realizar una acción dependiendo del botón seleccionado
@@ -70,7 +70,6 @@ public class MarioKartApp {
 				for (int i = 0; i < piloto.length; i++) {
 					piloto[i].setSeleccionado(false);
 				}
-				;
 				piloto[posicion].setSeleccionado(true);
 
 			} else if (seleccion == 2) {
@@ -82,13 +81,6 @@ public class MarioKartApp {
 			} else if (posicion < 0) {
 				posicion = piloto.length - 1;
 			}
-
-		}
-	}
-
-	public static void seleccionPiloto(PilotoKart piloto) {
-
-		if (piloto.isSeleccionado()) {
 
 		}
 	}
