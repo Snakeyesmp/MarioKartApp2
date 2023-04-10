@@ -25,7 +25,7 @@ public class MarioKartApp {
 		juanDeColoniaRace.setParticipantes(pilotosJuanDeColoniaRace);
 
 		iniciarCompeticion(juanDeColoniaRace);
-		menuPilotos(wario);
+		menuPilotos(pilotosJuanDeColoniaRace);
 
 	}
 
@@ -37,14 +37,52 @@ public class MarioKartApp {
 		JOptionPane.showMessageDialog(null, competicion.mostrarDatosCompeticion(),
 				"SUPER MARIO KART: Senda arco iris", JOptionPane.PLAIN_MESSAGE, fotoMapa);
 
-		
 	}
 
-	public static void menuPilotos(PilotoKart piloto){
-		ImageIcon fotoPiloto = new ImageIcon(piloto.getImagen());
-		JOptionPane.showMessageDialog(null, piloto.mostrarDatosPiloto(),
-		"Piloto: " + piloto.getPiloto(), JOptionPane.PLAIN_MESSAGE, fotoPiloto);
+	public static void menuPilotos(PilotoKart[] piloto) {
 
+		int posicion = 0;
+
+		while (true) {
+
+			ImageIcon fotoPiloto = new ImageIcon(piloto[posicion].getImagen());
+
+			// Crear el array de opciones
+			String[] opciones = { "Anterior", "Seleccionar piloto", "Siguiente" };
+
+			// Mostrar el JOptionPane con los botones y obtener el botón seleccionado
+			int seleccion = JOptionPane.showOptionDialog(null, piloto[posicion].mostrarDatosPiloto(),
+					"Piloto: " + piloto[posicion].getPiloto(),
+					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, fotoPiloto, opciones, opciones[1]);
+
+			// Realizar una acción dependiendo del botón seleccionado
+			if (seleccion == 0) {
+				posicion--;
+			} else if (seleccion == 1) {
+
+				for (int i = 0; i < piloto.length; i++) {
+					piloto[i].setSeleccionado(false);
+				};
+				piloto[posicion].setSeleccionado(true);
+
+			} else if (seleccion == 2) {
+				posicion++;
+			}
+
+			if (posicion == piloto.length) {
+				posicion = 0;
+			} else if (posicion < 0) {
+				posicion = piloto.length - 1;
+			}
+
+		}
 	}
-	
+
+	public static void seleccionPiloto(PilotoKart piloto) {
+
+		if (piloto.isSeleccionado()) {
+
+		}
+	}
+
 }

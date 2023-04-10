@@ -51,8 +51,10 @@ public class PilotoKart {
 
 	public String mostrarDatosPiloto() {
 
-		return this.getPiloto() + "\n Velocidad " + PilotoKart.VELOCIDAD + "\n Aceleracion " + PilotoKart.ACELERACION
-				+ "\n Peso " + PilotoKart.PESO + "\n Manejo " + PilotoKart.MANEJO + "\n Agarre " + PilotoKart.AGARRE;
+		return this.getPiloto() + "\n Velocidad " + this.caracteristicas[0] + "\n Aceleracion "
+				+ this.caracteristicas[1]
+				+ "\n Peso " + this.caracteristicas[2] + "\n Manejo " + this.caracteristicas[3] + "\n Agarre "
+				+ this.caracteristicas[4];
 	}
 
 }
