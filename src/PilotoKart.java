@@ -51,7 +51,7 @@ public class PilotoKart {
 
 	public String mostrarDatosPiloto() {
 
-		return this.getPiloto() + "\n Velocidad " + this.caracteristicas[0] + "\n Aceleracion "
+		return this.getPiloto() + "\n \n Velocidad " + this.caracteristicas[0] + "\n Aceleracion "
 				+ this.caracteristicas[1]
 				+ "\n Peso " + this.caracteristicas[2] + "\n Manejo " + this.caracteristicas[3] + "\n Agarre "
 				+ this.caracteristicas[4];

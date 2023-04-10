@@ -67,8 +67,8 @@ public class Competicion {
 
 	public String mostrarDatosCompeticion() {
 
-		return "COMPETICION SUPER MARIO KART \n ------------------------------------------------ \n "
-				+ this.getCircuito() + "\n" + this.getCilindrada() + "cc - "
+		return "COMPETICION SUPER MARIO KART \n ------------------------------------------------\n"
+				+ this.getCircuito().toUpperCase() + "\n" + this.getCilindrada() + "cc - "
 				+ this.getVueltas() + " vueltas \n" + this.getParticipantes().length
 				+ " pilotos \n" + "Vuelta rápida: " + this.getVueltaRapida();
 	}
