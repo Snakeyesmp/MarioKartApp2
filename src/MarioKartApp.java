@@ -40,9 +40,9 @@ public class MarioKartApp {
 	public static void menuPilotos(PilotoKart[] piloto) {
 
 		int posicion = 0;
-		boolean cerrar = true;
+		int seleccion=0;
 
-		while (cerrar) {
+		while (seleccion != -1) {
 
 			ImageIcon fotoPiloto = new ImageIcon(piloto[posicion].getImagen());
 
@@ -50,7 +50,6 @@ public class MarioKartApp {
 			String[] opciones = { "Anterior", "Seleccionar piloto", "Siguiente" };
 
 			// Mostrar el JOptionPane con los botones y obtener el botón seleccionado
-			int seleccion;
 			if (piloto[posicion].isSeleccionado()) {
 				seleccion = JOptionPane.showOptionDialog(null,
 						piloto[posicion].mostrarDatosPiloto() + "\n PILOTO SELECCIONADO",
